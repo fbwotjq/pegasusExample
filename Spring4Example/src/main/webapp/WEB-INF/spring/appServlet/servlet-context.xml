@@ -10,7 +10,9 @@
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context 
-		http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -45,11 +47,11 @@
         <beans:property name="dataSource" ref="dataSource" />
     </beans:bean>
     
-    <!-- <tx:annotation-driven transaction-manager="transactionManager"/> -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
     
     <beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <beans:property name="dataSource" ref="dataSource" />
-        <beans:property name="configLocation" value="/WEB-INF/mybatisConfiguration.xml" />
+        <beans:property name="configLocation" value="classpath:com/fbwotjq/example/mybatis/config/mybatisConfiguration.xml" />
     </beans:bean>
     
     <beans:bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
