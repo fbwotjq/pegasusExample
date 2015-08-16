@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fbwotjq.example.mapper.UserMapper" >
+   
+    <insert id="insertUser" parameterType="com.fbwotjq.example.user.User" >
+        INSERT INTO user 
+        (
+        	user_id,
+        	user_pw,
+        	user_name,
+        	user_email,
+        	user_phone,
+        	user_alias,
+        	user_grant
+        )
+        VALUES 
+        ( 
+        	#{userId, jdbcType=VARCHAR}, 
+        	#{userPassword, jdbcType=VARCHAR}, 
+        	#{userName, jdbcType=VARCHAR},
+        	#{userEmail, jdbcType=VARCHAR},
+        	#{userPhone, jdbcType=CHAR},
+        	#{userAlias, jdbcType=VARCHAR},
+        	#{userGrant, jdbcType=VARCHAR}
+        )
+    </insert>
+   
+</mapper>
